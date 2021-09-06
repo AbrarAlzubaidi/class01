@@ -4,12 +4,17 @@ import Main from './component/Main';
 import Footer from './component/Footer';
 
 
+
  class App extends Component {
   render() {
-    return(  <>
-      <Header/>
-      <Main/>
-      <Footer/>
+    return( 
+       <>
+       
+         <Header/>
+         <Main/>
+         <Footer/>
+       
+          
        </>
     ) 
     

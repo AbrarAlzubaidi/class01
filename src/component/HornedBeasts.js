@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { Card, Button, Col } from 'react-bootstrap';
 class HornedBeasts extends Component {
     constructor(props) {
         super(props);
@@ -8,22 +8,31 @@ class HornedBeasts extends Component {
         }
 
     }
+
     incrementClick = () => {
         this.setState({
             fav: this.state.fav + 1
         })
-
-
-
     }
+
     render() {
         return (
-            <div>
-                <h2> title :{this.props.title} </h2>
-                <img src={this.props.image_url} alt={this.props.keyword} onClick={this.incrementClick} />
-                <p> description:{this.props.description} </p>
-                <h3>number of votes: {this.state.fav}<img src='https://proofmart.com/wp-content/uploads/2021/06/5.png' alt='heart' style={{height:'50px', width:'50px', margin:'auto auto auto 10px'}}/></h3>
+            <div className='cardDiv'>
+                <Col><Card style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src={this.props.image_url} />
+                    <Card.Body>
+                        <Card.Title >{this.props.title}</Card.Title>
+                        <Card.Text>
+                            <h3>number of votes: {this.state.fav}<img src='https://proofmart.com/wp-content/uploads/2021/06/5.png'
+                                alt='heart'
+                                style={{ height: '50px', width: '50px', margin: 'auto auto auto 10px' }}
+                            /></h3>
+                        </Card.Text>
 
+                        <Button onClick={() => this.props.shown(this.props.title, this.props.description)} variant="primary">description</Button>
+                    </Card.Body>
+                </Card>
+                </Col>
             </div>
         )
     }

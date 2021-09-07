@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
-
+import { Navbar, Container } from 'react-bootstrap';
 class Header extends Component {
     render() {
         return (
-            <>
-                <h1>horned animals</h1>
-            </>
+            
+                
+                <Navbar bg="light">
+                    <Container>
+                        <Navbar.Brand>Horend Animals</Navbar.Brand>
+                    </Container>
+                </Navbar>
+
         )
     }
 }

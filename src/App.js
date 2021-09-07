@@ -13,14 +13,14 @@ class App extends Component {
     super(props);
 
     this.state = {
-      show: false,
+      showModal: false,
       name: '',
       description: ''
     }
   }
   shown = (title, description) => {
     this.setState({
-      show: true,
+      showModal: true,
       title: title,
       description: description
     })
@@ -28,7 +28,7 @@ class App extends Component {
 
   hidden = () => {
     this.setState({
-      show: false
+      showModal: false
 
     })
   }
@@ -50,7 +50,7 @@ class App extends Component {
         <SelectedBeast hidden={this.hidden}
           title={this.state.title}
           description={this.state.description}
-          show={this.state.show}
+          showModal={this.state.showModal}
         />
         <Footer />
       </>

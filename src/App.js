@@ -6,15 +6,13 @@ import Main from './component/Main';
 import Footer from './component/Footer';
 import SelectedBeast from './component/SelectedBeast';
 
-
-
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       showModal: false,
-      name: '',
+      title: '',
       description: ''
     }
   }
@@ -22,7 +20,7 @@ class App extends Component {
     this.setState({
       showModal: true,
       title: title,
-      description: description
+      description: description,
     })
   }
 

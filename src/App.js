@@ -5,6 +5,7 @@ import Header from './component/Header';
 import Main from './component/Main';
 import Footer from './component/Footer';
 import SelectedBeast from './component/SelectedBeast';
+import Form from './component/Form';
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class App extends Component {
     this.state = {
       showModal: false,
       title: '',
-      description: ''
+      description: '',
+      array:[]
     }
   }
   shown = (title, description) => {
@@ -31,10 +33,29 @@ class App extends Component {
     })
   }
 
+  select=(event)=>{
+    // event.preventDefault();
+    let selectValue= event.target.value;
+    let array = data.filter( index=>{
+      if(index.horns === selectValue)
+      {
+        return array
+      }
+     }) 
+      // this.setState({
+      //   ...this.state,
+      //   select:array
+      // })
+    
+  }
+
   render() {
     return (
       <>
         <Header />
+        <br/>
+        <Form select={this.select}/ >
+
         {
           data.map((currentValue) => {
             return <Main title={currentValue.title}

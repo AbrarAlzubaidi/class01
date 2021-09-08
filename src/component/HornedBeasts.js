@@ -18,7 +18,8 @@ class HornedBeasts extends Component {
     render() {
         return (
             <div className='row '>
-                <Col className='col-md-4'>
+              
+                    <Col className='col-md-4'>
                     <Card style={{ width: '18rem' }}>
                         <Card.Img variant="top" src={this.props.image_url} onClick={this.incrementClick} />
                         <Card.Body>
@@ -36,6 +37,7 @@ class HornedBeasts extends Component {
                         </Card.Body>
                     </Card>
                 </Col>
+                
             </div>
         )
     }

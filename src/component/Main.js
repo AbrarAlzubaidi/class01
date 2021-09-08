@@ -4,14 +4,19 @@ import HornedBeasts from './HornedBeasts';
 
 class Main extends Component {
     render() {
+        let title = this.props.title;
+        let image_url = this.props.image_url;
+        let description = this.props.description;
+        let keyword = this.props.keyword;
+        let shown = this.props.shown;
         return (
             <div>
                 {
-                    < HornedBeasts title={this.title}
-                        image_url={this.image_url}
-                        description={this.description}
-                        keyword={this.keyword}
-                        shown={this.props.shown}
+                    < HornedBeasts title={title}
+                        image_url={image_url}
+                        description={description}
+                        keyword={keyword}
+                        shown={shown}
                     />
                 }
             </div>

@@ -17,21 +17,24 @@ class HornedBeasts extends Component {
 
     render() {
         return (
-            <div className='cardDiv'>
-                <Col><Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={this.props.image_url} />
-                    <Card.Body>
-                        <Card.Title >{this.props.title}</Card.Title>
-                        <Card.Text>
-                            <h3>number of votes: {this.state.fav}<img src='https://proofmart.com/wp-content/uploads/2021/06/5.png'
-                                alt='heart'
-                                style={{ height: '50px', width: '50px', margin: 'auto auto auto 10px' }}
-                            /></h3>
-                        </Card.Text>
+            <div className='row'>
+                <Col>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src={this.props.image_url} onClick={this.incrementClick} />
+                        <Card.Body>
+                            <Card.Title >{this.props.title}</Card.Title>
+                            <Card.Text>
+                                number of votes: {this.state.fav}(❤️)
+                                {/* {<img src='https://proofmart.com/wp-content/uploads/2021/06/5.png'
+                                    alt='heart'
+                                    style={{ height: '50px', width: '50px', margin: 'auto auto auto 10px' }}
+                                />} */}
 
-                        <Button onClick={() => this.props.shown(this.props.title, this.props.description)} variant="primary">description</Button>
-                    </Card.Body>
-                </Card>
+                            </Card.Text>
+
+                            <Button onClick={() => this.props.shown(this.props.title, this.props.description)} variant="primary">description</Button>
+                        </Card.Body>
+                    </Card>
                 </Col>
             </div>
         )

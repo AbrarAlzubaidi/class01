@@ -15,7 +15,7 @@ class App extends Component {
       showModal: false,
       title: '',
       description: '',
-      array:[]
+      select:[]
     }
   }
   shown = (title, description) => {
@@ -34,18 +34,16 @@ class App extends Component {
   }
 
   select=(event)=>{
-    // event.preventDefault();
-    let selectValue= event.target.value;
-    let array = data.filter( index=>{
-      if(index.horns === selectValue)
-      {
-        return array
-      }
-     }) 
-      // this.setState({
-      //   ...this.state,
-      //   select:array
-      // })
+    event.preventDefault();
+    let numberOfHorns= data.map(index=>{
+      let selectedValue=parseInt(event.target.value);
+    if(index.horns=== selectedValue)
+    return index;
+    else
+    return false;
+    })
+    console.log(typeof(event.target.value));
+    console.log(numberOfHorns);
     
   }
 
@@ -54,7 +52,7 @@ class App extends Component {
       <>
         <Header />
         <br/>
-        <Form select={this.select}/ >
+        <Form select={this.select} / >
 
         {
           data.map((currentValue) => {

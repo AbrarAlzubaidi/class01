@@ -11,8 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.cardDiv{
+
+.cardSection{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: auto auto auto auto auto;
   gap:20px;
+  
+}
+.formSection{
+  margin-bottom:20px;
+  margin-left:10px;
+  color:blue;
+  text-transform: capitalize;
+}
+.selectSection{
+  color:blue;
 }

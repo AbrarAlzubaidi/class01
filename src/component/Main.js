@@ -8,6 +8,7 @@ class Main extends Component {
         let image_url = this.props.image_url;
         let description = this.props.description;
         let keyword = this.props.keyword;
+        let horns=this.props.horns;
         let shown = this.props.shown;
         return (
             <div>
@@ -15,6 +16,7 @@ class Main extends Component {
                     < HornedBeasts title={title}
                         image_url={image_url}
                         description={description}
+                        horns={horns}
                         keyword={keyword}
                         shown={shown}
                     />

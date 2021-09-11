@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button, Col } from 'react-bootstrap';
 class HornedBeasts extends Component {
     constructor(props) {
@@ -17,27 +18,23 @@ class HornedBeasts extends Component {
 
     render() {
         return (
-            <div className='row '>
-              
-                    <Col className='col-md-4'>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={this.props.image_url} onClick={this.incrementClick} />
-                        <Card.Body>
-                            <Card.Title >{this.props.title}</Card.Title>
-                            <Card.Text>
-                                number of votes: {this.state.fav}(❤️)
-                                {/* {<img src='https://proofmart.com/wp-content/uploads/2021/06/5.png'
-                                    alt='heart'
-                                    style={{ height: '50px', width: '50px', margin: 'auto auto auto 10px' }}
-                                />} */}
 
-                            </Card.Text>
+            <div className="container">
+                        
+                            <Card style={{ width: '18rem' }} className='cardSection'>
+                                <Card.Img variant="top" src={this.props.image_url} onClick={this.incrementClick} />
+                                <Card.Body>
+                                    <Card.Title >{this.props.title}</Card.Title>
+                                    <Card.Text>
+                                        ❤️: {this.state.fav}
+                                        <br />
+                                        number of horns: {this.props.horns}
+                                    </Card.Text>
 
-                            <Button onClick={() => this.props.shown(this.props.title, this.props.description)} variant="primary">description</Button>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                
+                                    <Button onClick={() => this.props.shown(this.props.title, this.props.description, this.props.image_url)} variant="primary">description</Button>
+                                </Card.Body>
+                            </Card>
+                        
             </div>
         )
     }

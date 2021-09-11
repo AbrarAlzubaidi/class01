@@ -15,14 +15,18 @@ class App extends Component {
       showModal: false,
       title: '',
       description: '',
-      select:[]
+      image_url:'',
+      data:data,
+      numberOfHorns:[]
     }
   }
-  shown = (title, description) => {
+  shown = (title, description,image_url) => {
     this.setState({
       showModal: true,
       title: title,
+      image_url: image_url,
       description: description,
+      
     })
   }
 
@@ -35,15 +39,16 @@ class App extends Component {
 
   select=(event)=>{
     event.preventDefault();
-    let numberOfHorns= data.map(index=>{
-      let selectedValue=parseInt(event.target.value);
-    if(index.horns=== selectedValue)
-    return index;
-    else
-    return false;
+    let selectedValue=parseInt(event.target.value);
+    console.log(selectedValue);
+    let numberOfHorns= [];
+    numberOfHorns=data.filter(index=>{
+    return (index.horns=== selectedValue)
+    
     })
-    console.log(typeof(event.target.value));
-    console.log(numberOfHorns);
+    this.setState({
+      data:numberOfHorns
+    })
     
   }
 
@@ -55,11 +60,12 @@ class App extends Component {
         <Form select={this.select} / >
 
         {
-          data.map((currentValue) => {
+          this.state.data.map((currentValue) => {
             return <Main title={currentValue.title}
               image_url={currentValue.image_url}
               description={currentValue.description}
               keyword={currentValue.keyword}
+              horns={currentValue.horns}
               shown={this.shown}
             />
           })
@@ -67,6 +73,7 @@ class App extends Component {
         <SelectedBeast hidden={this.hidden}
           title={this.state.title}
           description={this.state.description}
+          image_url={this.state.image_url}
           showModal={this.state.showModal}
         />
         <Footer />

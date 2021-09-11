@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button, Col } from 'react-bootstrap';
 class HornedBeasts extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -19,11 +20,11 @@ class HornedBeasts extends Component {
     render() {
         return (
 
-            <div className="container">
-                        
+            < >
+                        <Col xs={3}>
                             <Card style={{ width: '18rem' }} className='cardSection'>
                                 <Card.Img variant="top" src={this.props.image_url} onClick={this.incrementClick} />
-                                <Card.Body>
+                                <Card.Body style={{   height: "235px",display: "flex",flexDirection:'column', justifyContent:'space-around'   }}>
                                     <Card.Title >{this.props.title}</Card.Title>
                                     <Card.Text>
                                         ❤️: {this.state.fav}
@@ -34,8 +35,9 @@ class HornedBeasts extends Component {
                                     <Button onClick={() => this.props.shown(this.props.title, this.props.description, this.props.image_url)} variant="primary">description</Button>
                                 </Card.Body>
                             </Card>
+                            </Col>
                         
-            </div>
+            </>
         )
     }
 }

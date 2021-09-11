@@ -15,18 +15,18 @@ class App extends Component {
       showModal: false,
       title: '',
       description: '',
-      image_url:'',
-      data:data,
-      numberOfHorns:[]
+      image_url: '',
+      data: data,
+      numberOfHorns: []
     }
   }
-  shown = (title, description,image_url) => {
+  shown = (title, description, image_url) => {
     this.setState({
       showModal: true,
       title: title,
       image_url: image_url,
       description: description,
-      
+
     })
   }
 
@@ -37,39 +37,30 @@ class App extends Component {
     })
   }
 
-  select=(event)=>{
+  select = (event) => {
     event.preventDefault();
-    let selectedValue=parseInt(event.target.value);
+    let selectedValue = parseInt(event.target.value);
     console.log(selectedValue);
-    let numberOfHorns= [];
-    numberOfHorns=data.filter(index=>{
-    return (index.horns=== selectedValue)
-    
+    let numberOfHorns = [];
+    numberOfHorns = data.filter(index => {
+      return (index.horns === selectedValue)
+
     })
     this.setState({
-      data:numberOfHorns
+      data: numberOfHorns
     })
-    
+
   }
 
   render() {
     return (
       <>
         <Header />
-        <br/>
-        <Form select={this.select} / >
+        <br />
+        <Form select={this.select} />
 
-        {
-          this.state.data.map((currentValue) => {
-            return <Main title={currentValue.title}
-              image_url={currentValue.image_url}
-              description={currentValue.description}
-              keyword={currentValue.keyword}
-              horns={currentValue.horns}
-              shown={this.shown}
-            />
-          })
-        }
+        <Main data={this.state.data} shown={this.shown}/>
+
         <SelectedBeast hidden={this.hidden}
           title={this.state.title}
           description={this.state.description}

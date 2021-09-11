@@ -4,23 +4,22 @@ import HornedBeasts from './HornedBeasts';
 
 class Main extends Component {
     render() {
-        let title = this.props.title;
-        let image_url = this.props.image_url;
-        let description = this.props.description;
-        let keyword = this.props.keyword;
-        let horns=this.props.horns;
-        let shown = this.props.shown;
+        let data = this.props.data;
         return (
-            <div>
+            <div className='row'>
+
                 {
-                    < HornedBeasts title={title}
-                        image_url={image_url}
-                        description={description}
-                        horns={horns}
-                        keyword={keyword}
-                        shown={shown}
-                    />
+                    data.map((currentValue) => {
+                        return <HornedBeasts title={currentValue.title}
+                            image_url={currentValue.image_url}
+                            description={currentValue.description}
+                            keyword={currentValue.keyword}
+                            horns={currentValue.horns}
+                            shown={this.props.shown}
+                        />
+                    })
                 }
+
             </div>
         )
     }
